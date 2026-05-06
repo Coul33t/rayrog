@@ -5,13 +5,10 @@
 #ifndef RAYROG_TIL_H
 #define RAYROG_TIL_H
 
-enum TILETYPE {
-    WALL,
-    FLOOR
-};
+#include "tiletype.h"
 
 struct Tile {
-
+    Tiletype tile_type;
 };
 
 #endif //RAYROG_TIL_H

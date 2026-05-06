@@ -13,13 +13,16 @@ Renderer::~Renderer() {
 }
 
 bool Renderer::init() {
-    InitWindow(640, 480, "Yoooo");
+    InitWindow(24*50, 24*35, "Yoooo");
     SetTargetFPS(60);
 
     TilesetInfo tileset_info(24*16, 24*16, 24, 24);
     tileset_info.add_tile("wall", 3, 2);
 
-    tileset.load_tileset("Curses_square_24.png", tileset_info);
+    tileset.load_tileset("../../data/Curses_square_24.png", tileset_info);
+
+    tileset.add_tile("wall", 3, 2);
+    tileset.add_tile("floor", 14, 2);
 
     return true;
 }
@@ -28,6 +31,15 @@ void Renderer::close() {
     CloseWindow();
 }
 
-bool Renderer::windowShouldClose() {
+bool Renderer::window_should_close() {
     return WindowShouldClose();
+}
+
+void Renderer::draw_tile(const std::string& name, Position pos) {
+    Position tile_pos = tileset.get_tile_pos(name);
+
+    if (tile_pos != Position{-1, -1}) {
+        Rectangle rect = Tools::get_rect(tileset.to_real_pos(tile_pos), tileset.get_tile_size());
+        DrawTextureRec(tileset.text, rect, pos.as_vec2(), WHITE);
+    }
 }

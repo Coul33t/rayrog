@@ -7,6 +7,7 @@
 
 #include <map>
 #include "components/position.h"
+#include "tiletype.h"
 
 struct TilesetInfo {
     int w, h, tile_w, tile_h;
@@ -30,6 +31,18 @@ struct TilesetInfo {
 
     void add_tile(const std::string& name, int x, int y) {
         tiles_idx[name] = Position(x, y);
+    }
+
+    Position get_tile(const std::string& name) {
+        if (const auto it = tiles_idx.find(name); it != tiles_idx.end()) {
+            return it->second;
+        }
+
+        return {-1, -1};
+    }
+
+    Vector2 get_tile_size() const {
+        return Vector2{static_cast<float>(tile_w), static_cast<float>(tile_h)};
     }
 };
 

@@ -15,6 +15,8 @@ public:
     void init();
     void run();
 
+    void draw_map();
+
     Renderer renderer;
 };
 
