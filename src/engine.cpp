@@ -4,6 +4,8 @@
 
 #include "engine.h"
 
+#include "input_handler.h"
+
 Engine::Engine() {
 
 }
@@ -14,13 +16,17 @@ Engine::~Engine() {
 
 void Engine::init() {
     renderer.init();
+    game_map.init(20, 40);
+    game_map.test_map();
 }
 
 void Engine::run() {
     while (!renderer.window_should_close()) {
         BeginDrawing();
         ClearBackground(BLACK);
-        draw_map();
+        renderer.draw_map(game_map);
+        Action act = input_h.handle_input();
+        handle_action(act);
         //DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
         EndDrawing();
     }
@@ -28,18 +34,8 @@ void Engine::run() {
     renderer.close();
 }
 
-void Engine::draw_map() {
-    int x1 = 24;
-    int x2 = 24*15;
-    int y1 = 24;
-    int y2 = 24*10;
-    for (size_t i = 0; i < 15; i++) {
-        renderer.draw_tile("wall", {x1 + (int)(24*i), y1});
-        renderer.draw_tile("wall", {x1 + (int)(24*i), y2});
-    }
+void Engine::handle_action(Action act) {
+    if (act.type == ActionType::MOVE) {
 
-    for (size_t i = 0; i < 10; i++) {
-        renderer.draw_tile("wall", {x1, y1 + (int)(24*i)});
-        renderer.draw_tile("wall", {x2, y1 + (int)(24*i)});
     }
 }

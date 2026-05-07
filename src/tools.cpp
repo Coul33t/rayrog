@@ -8,4 +8,8 @@ namespace Tools {
     Rectangle get_rect(Vector2 pos, Vector2 size) {
         return {pos.x, pos.y, size.x, size.y};
     }
+
+    int coord_2d_to_1d(int x, int y, int w) {
+        return y*w + x;
+    }
 }

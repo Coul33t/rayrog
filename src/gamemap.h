@@ -8,14 +8,17 @@
 #include <vector>
 
 #include "tile.h"
+#include "tools.h"
 
-class Map {
+class GameMap {
 public:
-    Map();
-    ~Map();
+    GameMap();
+    ~GameMap();
 
-    void init();
+    void init(size_t w, size_t h);
+    void test_map();
 
+    size_t w, h;
     std::vector<Tile> tiles;
 };
 

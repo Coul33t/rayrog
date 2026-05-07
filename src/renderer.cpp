@@ -43,3 +43,15 @@ void Renderer::draw_tile(const std::string& name, Position pos) {
         DrawTextureRec(tileset.text, rect, pos.as_vec2(), WHITE);
     }
 }
+
+void Renderer::draw_tile(const Tile& tile, Position pos) {
+    draw_tile(tiletype_to_str(tile.type), pos);
+}
+
+void Renderer::draw_map(const GameMap& gamemap) {
+    for (int i = 0; i < gamemap.w; i++) {
+        for (int j = 0; j < gamemap.h; j++) {
+            draw_tile(gamemap.tiles[Tools::coord_2d_to_1d(i, j)], {i, j});
+        }
+    }
+}
