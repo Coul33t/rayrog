@@ -26,6 +26,6 @@ void Entity::move(std::vector<std::any> dd) {
     move(std::any_cast<int>(dd[0]), std::any_cast<int>(dd[1]));
 }
 
-void Entity::move(Vector2 dd) {
+void Entity::move(raylib::Vector2 dd) {
     move(dd.x, dd.y);
 }

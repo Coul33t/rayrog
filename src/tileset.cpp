@@ -13,7 +13,7 @@ Tileset::~Tileset() {
 }
 
 bool Tileset::load_tileset(const std::string &path_to_file, TilesetInfo ts_info) {
-    text = LoadTexture(path_to_file.c_str());
+    text = raylib::LoadTexture(path_to_file.c_str());
     this->ts_info = ts_info;
     return true;
 }
@@ -26,14 +26,14 @@ Position Tileset::get_tile_pos(const std::string& tile_name) {
     return ts_info.get_tile(tile_name);
 }
 
-Vector2 Tileset::get_tile_size() const {
+raylib::Vector2 Tileset::get_tile_size() const {
     return ts_info.get_tile_size();
 }
 
-Vector2 Tileset::to_real_pos(const int x, const int y) const {
-    return Vector2{static_cast<float>(x * ts_info.tile_w), static_cast<float>(y * ts_info.tile_h)};
+raylib::Vector2 Tileset::to_real_pos(const int x, const int y) const {
+    return raylib::Vector2{static_cast<float>(x * ts_info.tile_w), static_cast<float>(y * ts_info.tile_h)};
 }
 
-Vector2 Tileset::to_real_pos(const Position pos) const {
-    return Vector2{static_cast<float>(pos.x * ts_info.tile_w), static_cast<float>(pos.y * ts_info.tile_h)};
+raylib::Vector2 Tileset::to_real_pos(const Position pos) const {
+    return raylib::Vector2{static_cast<float>(pos.x * ts_info.tile_w), static_cast<float>(pos.y * ts_info.tile_h)};
 }

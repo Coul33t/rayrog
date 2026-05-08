@@ -11,6 +11,7 @@
 #include "raylib.h"
 
 #include "components/position.h"
+#include "tags.h"
 
 class Entity {
 public:
@@ -20,9 +21,10 @@ public:
 
     void move(int dx, int dy);
     void move(std::vector<std::any> dd);
-    void move(Vector2 dd);
+    void move(raylib::Vector2 dd);
 
     Position pos;
+    std::vector<Tag> tags;
 };
 
 

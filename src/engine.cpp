@@ -22,13 +22,13 @@ void Engine::init() {
 
 void Engine::run() {
     while (!renderer.window_should_close()) {
-        BeginDrawing();
-        ClearBackground(BLACK);
+        raylib::BeginDrawing();
+        ClearBackground(raylib::BLACK);
         renderer.draw_map(game_map);
         Action act = input_h.handle_input();
         handle_action(act);
         //DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-        EndDrawing();
+        raylib::EndDrawing();
     }
 
     renderer.close();
