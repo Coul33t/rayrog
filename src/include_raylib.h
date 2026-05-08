@@ -5,8 +5,6 @@
 #ifndef RAYROG_INCLUDE_RAYLIB_H
 #define RAYROG_INCLUDE_RAYLIB_H
 
-namespace raylib {
-    #include "raylib.h"
-}
+#include "raylib.h"
 
 #endif

@@ -17,20 +17,12 @@ Entity::~Entity() {
 
 }
 
-void Entity::move(int dx, int dy) {
-    pos.x += dx;
-    pos.y += dy;
-}
-
-void Entity::move(std::vector<std::any> dd) {
-    move(std::any_cast<int>(dd[0]), std::any_cast<int>(dd[1]));
-}
-
-void Entity::move(raylib::Vector2 dd) {
-    move(dd.x, dd.y);
+template<typename... Args>
+void Entity::add_tag(int nb_tags, const Args&... tags_to_add) {
+    (tags.emplace_back(tags_to_add), ...);
 }
 
 bool Entity::has_tag(const Tag& tag) {
-    auto it = tags.find(tag);
+    const auto it = std::find(tags.begin(), tags.end(), tag);
     return (it != tags.end());
 }

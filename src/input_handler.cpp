@@ -16,24 +16,24 @@ InputHandler::~InputHandler() {
 Action InputHandler::handle_input() {
     Action act;
 
-    int key = raylib::GetKeyPressed();
+    int key = GetKeyPressed();
 
-    if (key == raylib::KEY_Z) {
+    if (key == KEY_Z) {
         act.type = ActionType::MOVE;
         act.params = {0, -1};
     }
 
-    else if (key == raylib::KEY_Q) {
+    else if (key == KEY_Q) {
         act.type = ActionType::MOVE;
         act.params = {-1, 0};
     }
 
-    else if (key == raylib::KEY_S) {
+    else if (key == KEY_S) {
         act.type = ActionType::MOVE;
         act.params = {0, 1};
     }
 
-    else if (key == raylib::KEY_D) {
+    else if (key == KEY_D) {
         act.type = ActionType::MOVE;
         act.params = {1, 0};
     }

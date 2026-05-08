@@ -7,6 +7,7 @@
 
 #include "event.h"
 #include "action.h"
+#include "action_type.h"
 
 class EventManager {
 public:
@@ -19,6 +20,6 @@ public:
     void process_events();
 
     std::vector<Event> events_queue;
-}
+};
 
 #endif

@@ -6,6 +6,7 @@
 #define RAYROG_TILESET_INFO_H
 
 #include <map>
+#include "include_raylib.h"
 #include "components/position.h"
 #include "tiletype.h"
 

@@ -18,6 +18,8 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(raylib)
 
+#INCLUDE_DIRECTORIES("extlib/raylib-cpp/include/")
+
 # Our Project
 add_executable(${PROJECT_NAME})
 add_subdirectory(src)

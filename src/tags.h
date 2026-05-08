@@ -4,6 +4,7 @@
 enum class Tag {
     PLAYER,
     MONSTER,
+    HP,
     MOVEABLE,
     ATTACK
 };

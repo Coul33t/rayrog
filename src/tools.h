@@ -9,7 +9,7 @@
 
 namespace Tools {
     Rectangle get_rect(Vector2 pos, Vector2 size);
-    int coord_2d_to_1d(int x, int y);
+    int coord_2d_to_1d(int x, int y, int w);
 };
 
 

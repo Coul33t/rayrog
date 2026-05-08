@@ -7,8 +7,8 @@
 
 #include <vector>
 #include <any>
-
-#include "raylib.h"
+#include <cstdarg>
+#include <algorithm>
 
 #include "components/position.h"
 #include "tags.h"
@@ -19,14 +19,14 @@ public:
     Entity(int x, int y);
     ~Entity();
 
-    void move(int dx, int dy);
-    void move(std::vector<std::any> dd);
-    void move(raylib::Vector2 dd);
-
+    template<typename... Args>
+    void add_tag(int nb_tags, const Args&... tags);
     bool has_tag(const Tag& tag);
+    std::any get_comp(const Tag& tag);
 
     Position pos;
     std::vector<Tag> tags;
+    std::vector<std::any> comps;
 };
 
 

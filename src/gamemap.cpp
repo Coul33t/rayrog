@@ -27,11 +27,11 @@ void GameMap::test_map() {
     for (size_t i = 0; i < w; i++) {
         for (size_t j = 0; j < h; j++) {
             if (i == 0 || i == w-1 || j == 0 || j == h-1) {
-                tiles[Tools::coord_2d_to_1d(i, j)].set_wall();
+                tiles[Tools::coord_2d_to_1d(i, j, w)].set_wall();
             }
 
             else {
-                tiles[Tools::coord_2d_to_1d(i, j)].set_floor();
+                tiles[Tools::coord_2d_to_1d(i, j, w)].set_floor();
             }
         }
     }

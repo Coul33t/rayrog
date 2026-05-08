@@ -5,6 +5,8 @@
 #ifndef RAYROG_POSITION_H
 #define RAYROG_POSITION_H
 
+#include "../include_raylib.h"
+
 struct Position {
     int x, y;
 

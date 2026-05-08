@@ -21,11 +21,11 @@ public:
 
     Position get_tile_pos(const std::string& tile_name);
 
-    raylib::Vector2 get_tile_size() const;
-    raylib::Vector2 to_real_pos(int x, int y) const;
-    raylib::Vector2 to_real_pos(Position pos) const;
+    Vector2 get_tile_size() const;
+    Vector2 to_real_pos(int x, int y) const;
+    Vector2 to_real_pos(Position pos) const;
 
-    raylib::Texture2D text;
+    Texture2D text;
     TilesetInfo ts_info;
 };
 

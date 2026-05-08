@@ -6,7 +6,7 @@
 #define RAYROG_RENDERER_H
 
 #include "gamemap.h"
-#include "raylib.h"
+#include "include_raylib.h"
 #include "tileset.h"
 #include "tileset_info.h"
 #include "components/position.h"
