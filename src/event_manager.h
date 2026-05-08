@@ -6,8 +6,18 @@
 #define RAYROG_EVENT_MANAGER_H
 
 #include "event.h"
+#include "action.h"
 
 class EventManager {
+public:
+    EventManager();
+    ~EventManager();
+
+    void add_event(const Event& event);
+    void add_event(const Action& act, Entity* target, int priority);
+
+    void process_events();
+
     std::vector<Event> events_queue;
 }
 

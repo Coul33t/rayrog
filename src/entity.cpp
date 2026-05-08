@@ -29,3 +29,8 @@ void Entity::move(std::vector<std::any> dd) {
 void Entity::move(raylib::Vector2 dd) {
     move(dd.x, dd.y);
 }
+
+bool Entity::has_tag(const Tag& tag) {
+    auto it = tags.find(tag);
+    return (it != tags.end());
+}

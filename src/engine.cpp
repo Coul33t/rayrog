@@ -26,7 +26,7 @@ void Engine::run() {
         ClearBackground(raylib::BLACK);
         renderer.draw_map(game_map);
         Action act = input_h.handle_input();
-        handle_action(act);
+        ev_manager.add_event(act, player, 0);
         //DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
         raylib::EndDrawing();
     }

@@ -4,8 +4,6 @@
 
 #include "input_handler.h"
 
-#include "raylib.h"
-
 
 InputHandler::InputHandler() {
 
@@ -18,24 +16,24 @@ InputHandler::~InputHandler() {
 Action InputHandler::handle_input() {
     Action act;
 
-    int key = GetKeyPressed();
+    int key = raylib::GetKeyPressed();
 
-    if (key == KEY_Z) {
+    if (key == raylib::KEY_Z) {
         act.type = ActionType::MOVE;
         act.params = {0, -1};
     }
 
-    else if (key == KEY_Q) {
+    else if (key == raylib::KEY_Q) {
         act.type = ActionType::MOVE;
         act.params = {-1, 0};
     }
 
-    else if (key == KEY_S) {
+    else if (key == raylib::KEY_S) {
         act.type = ActionType::MOVE;
         act.params = {0, 1};
     }
 
-    else if (key == KEY_D) {
+    else if (key == raylib::KEY_D) {
         act.type = ActionType::MOVE;
         act.params = {1, 0};
     }

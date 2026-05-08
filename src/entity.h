@@ -23,6 +23,8 @@ public:
     void move(std::vector<std::any> dd);
     void move(raylib::Vector2 dd);
 
+    bool has_tag(const Tag& tag);
+
     Position pos;
     std::vector<Tag> tags;
 };
