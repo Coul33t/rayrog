@@ -5,7 +5,9 @@
 #ifndef RAYROG_HP_H
 #define RAYROG_HP_H
 
-struct Hp {
+#include "component.h"
+
+struct Hp: public Component {
     int hp, max_hp;
     
     Hp() {

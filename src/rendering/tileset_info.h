@@ -6,9 +6,9 @@
 #define RAYROG_TILESET_INFO_H
 
 #include <map>
-#include "include_raylib.h"
-#include "components/position.h"
-#include "tiletype.h"
+#include "../include_raylib.h"
+#include "../components/position.h"
+#include "../gamemap/tiletype.h"
 
 struct TilesetInfo {
     int w, h, tile_w, tile_h;

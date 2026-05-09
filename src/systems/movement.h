@@ -5,26 +5,16 @@
 #ifndef RAYROG_SYSTEMS_MOVEMENT_H
 #define RAYROG_SYSTEMS_MOVEMENT_H
 
-#include "../include_raylib.h"
+#include <any>
 
-#include "../event.h"
+#include "../events/event.h"
+#include "../components/position.h"
 
 namespace systems {
-    void move(const Event& ev) {
-        move(ev.target, ev.act.params);
-    }
-
-    void move(Entity& e, int dx, int dy) {
-        e.pos.x += dx;
-        e.pos.y += dy;
-    }
-
-    void move(Entity& e, std::vector<std::any> dd) {
-        move(std::any_cast<int>(dd[0]), std::any_cast<int>(dd[1]));
-    }
-
-    void move(Entity& e, raylib::Vector2 dd) {
-        move(dd.x, dd.y);
+    inline void move(const Event& ev) {
+        auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
+        pos->x += std::any_cast<int>(ev.act.params[0]);
+        pos->y += std::any_cast<int>(ev.act.params[1]);
     }
 }
 

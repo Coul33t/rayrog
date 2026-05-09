@@ -6,7 +6,8 @@ enum class Tag {
     MONSTER,
     HP,
     MOVEABLE,
-    ATTACK
+    ATTACK,
+    RENDER
 };
 
 #endif

@@ -7,12 +7,13 @@
 
 #include "include_raylib.h"
 
-#include "renderer.h"
-#include "gamemap.h"
-#include "input_handler.h"
-#include "action.h"
-#include "entity.h"
-#include "event_manager.h"
+#include "rendering/renderer.h"
+#include "gamemap/gamemap.h"
+#include "inputs/input_handler.h"
+#include "events/action.h"
+#include "entities/entity.h"
+#include "events/event_manager.h"
+#include "entities/entities_factory.h"
 
 class Engine {
 public:
@@ -29,6 +30,7 @@ public:
     EventManager ev_manager;
 
     Entity player;
+    std::vector<Entity> entities;
     GameMap game_map;
 };
 

@@ -7,6 +7,7 @@
 
 enum class ActionType {
     NONE,
+    WAIT,
     MOVE
 };
 

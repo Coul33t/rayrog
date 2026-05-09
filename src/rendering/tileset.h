@@ -6,9 +6,9 @@
 #define RAYROG_TILESET_H
 
 #include <string>
-#include "include_raylib.h"
+#include "../include_raylib.h"
 #include "tileset_info.h"
-#include "tiletype.h"
+#include "../gamemap/tiletype.h"
 
 class Tileset {
 public:

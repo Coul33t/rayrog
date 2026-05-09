@@ -8,6 +8,7 @@
 #include "event.h"
 #include "action.h"
 #include "action_type.h"
+#include "../systems/movement.h"
 
 class EventManager {
 public:

@@ -5,10 +5,10 @@
 #ifndef RAYROG_INPUT_HANDLER_H
 #define RAYROG_INPUT_HANDLER_H
 
-#include "include_raylib.h"
+#include "../include_raylib.h"
 
-#include "action.h"
-#include "event.h"
+#include "../events/action.h"
+#include "../events/event.h"
 
 
 class InputHandler {

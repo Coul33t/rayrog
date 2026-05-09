@@ -7,7 +7,9 @@
 
 #include "../include_raylib.h"
 
-struct Position {
+#include "component.h"
+
+struct Position: public Component {
     int x, y;
 
     Position() {

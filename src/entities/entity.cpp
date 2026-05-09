@@ -8,18 +8,8 @@ Entity::Entity() {
 
 }
 
-Entity::Entity(int x, int y) {
-    pos.x = x;
-    pos.y = y;
-}
-
 Entity::~Entity() {
 
-}
-
-template<typename... Args>
-void Entity::add_tag(int nb_tags, const Args&... tags_to_add) {
-    (tags.emplace_back(tags_to_add), ...);
 }
 
 bool Entity::has_tag(const Tag& tag) {

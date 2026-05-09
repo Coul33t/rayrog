@@ -20,8 +20,10 @@ void EventManager::process_events() {
     for (auto ev: events_queue) {
         if (ev.act.type == ActionType::MOVE) {
             if (ev.target->has_tag(Tag::MOVEABLE)) {
-                //ev.targetmove(ev.act.params);
+                systems::move(ev);
             }
         }
     }
+
+    events_queue.clear();
 }

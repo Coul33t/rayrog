@@ -6,7 +6,7 @@
 #define RAYROG_EVENT_H
 
 #include "action.h"
-#include "entity.h"
+#include "../entities/entity.h"
 
 struct Event {
     Action act;
