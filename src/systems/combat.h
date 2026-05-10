@@ -5,7 +5,7 @@
 #ifndef RAYROG_SYSTEMS_COMBAT_H
 #define RAYROG_SYSTEMS_COMBAT_H
 
-#include "../entity.h"
+#include "../entities/entity.h"
 
 namespace systems {
     void take_damage(Entity* src, Entity* target) {

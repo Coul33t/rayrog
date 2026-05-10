@@ -65,24 +65,30 @@ void Renderer::draw_map(const GameMap& gamemap) {
     }
 }
 
-void Renderer::draw_player(Entity& player) {
+void Renderer::draw_entity(Entity& entity) {
     Vector2 tile_size = tileset.get_tile_size();
-    auto pos = std::any_cast<Position>(player.get_comp<Position>())->as_vec2();
-    auto graphics = std::any_cast<Graphics>(player.get_comp<Graphics>());
+    auto pos = std::any_cast<Position>(entity.get_comp<Position>())->as_vec2();
+    auto graphics = std::any_cast<Graphics>(entity.get_comp<Graphics>());
 
     Position tile_pos = tileset.get_tile_pos(graphics->name);
 
     if (tile_pos != Position{-1, -1}) {
-        Rectangle rect = Tools::get_rect(tileset.to_real_pos(tile_pos), tileset.get_tile_size());
+        const Rectangle rect = Tools::get_rect(tileset.to_real_pos(tile_pos), tileset.get_tile_size());
         DrawTextureRec(tileset.text, rect, {pos.x * tile_size.x, pos.y * tile_size.y}, WHITE);
     }
 }
 
-void Renderer::draw_entities(const std::vector<Entity>& entities) {
-
+void Renderer::draw_player(Entity& player) {
+    draw_entity(player);
 }
 
-void Renderer::render_all(const GameMap& gamemap, Entity& player, const std::vector<Entity>& entities) {
+void Renderer::draw_entities(std::vector<Entity>& entities) {
+    for (auto& ent: entities) {
+        draw_entity(ent);
+    }
+}
+
+void Renderer::render_all(const GameMap& gamemap, Entity& player, std::vector<Entity>& entities) {
     draw_map(gamemap);
     draw_player(player);
     draw_entities(entities);

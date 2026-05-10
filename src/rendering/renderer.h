@@ -29,9 +29,10 @@ public:
     void draw_tile(const Tile& tile, Vector2 pos);
 
     void draw_map(const GameMap& map);
+    void draw_entity(Entity& entity);
     void draw_player(Entity& player);
-    void draw_entities(const std::vector<Entity>& entities);
-    void render_all(const GameMap& gamemap, Entity& player, const std::vector<Entity>& entities);
+    void draw_entities(std::vector<Entity>& entities);
+    void render_all(const GameMap& gamemap, Entity& player, std::vector<Entity>& entities);
 
     Tileset tileset;
 };
