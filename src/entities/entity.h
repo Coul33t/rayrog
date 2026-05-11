@@ -24,7 +24,7 @@ public:
     template<typename... Args>
     void add_comp(const Args&... comp);
 
-    bool has_tag(const Tag& tag);
+    bool has_tag(const Tag& tag) const;
     template<typename T>
     std::any* get_comp();
 

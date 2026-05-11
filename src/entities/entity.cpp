@@ -12,7 +12,7 @@ Entity::~Entity() {
 
 }
 
-bool Entity::has_tag(const Tag& tag) {
+bool Entity::has_tag(const Tag& tag) const {
     const auto it = std::find(tags.begin(), tags.end(), tag);
     return (it != tags.end());
 }

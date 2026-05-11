@@ -5,13 +5,13 @@
 #ifndef RAYROG_ENGINE_H
 #define RAYROG_ENGINE_H
 
-#include "include_raylib.h"
+#include "kraylib/kraylib.h"
 
 #include "rendering/renderer.h"
 #include "gamemap/gamemap.h"
 #include "inputs/input_handler.h"
 #include "events/action.h"
-#include "entities/entity.h"
+#include "entities/entities_manager.h"
 #include "events/event_manager.h"
 #include "entities/entities_factory.h"
 
@@ -29,8 +29,7 @@ public:
     InputHandler input_h;
     EventManager ev_manager;
 
-    Entity player;
-    std::vector<Entity> entities;
+    EntitiesManager ent_manager;
     GameMap game_map;
 };
 

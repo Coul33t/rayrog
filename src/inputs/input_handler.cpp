@@ -17,22 +17,22 @@ Action InputHandler::handle_input() {
     Action act;
     act.type = ActionType::NONE;
 
-    if (IsKeyReleased(KEY_W)) {
+    if (IsKeyPressed(KEY_W)) {
         act.type = ActionType::MOVE;
         act.params = {0, -1};
     }
 
-    else if (IsKeyReleased(KEY_A)) {
+    else if (IsKeyPressed(KEY_A)) {
         act.type = ActionType::MOVE;
         act.params = {-1, 0};
     }
 
-    else if (IsKeyReleased(KEY_S)) {
+    else if (IsKeyPressed(KEY_S)) {
         act.type = ActionType::MOVE;
         act.params = {0, 1};
     }
 
-    else if (IsKeyReleased(KEY_D)) {
+    else if (IsKeyPressed(KEY_D)) {
         act.type = ActionType::MOVE;
         act.params = {1, 0};
     }

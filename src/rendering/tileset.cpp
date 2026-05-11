@@ -13,7 +13,7 @@ Tileset::~Tileset() {
 }
 
 bool Tileset::load_tileset(const std::string &path_to_file, TilesetInfo ts_info) {
-    text = LoadTexture(path_to_file.c_str());
+    text = kraylib::load_texture(path_to_file.c_str());
     this->ts_info = ts_info;
     return true;
 }

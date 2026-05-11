@@ -5,7 +5,7 @@
 #ifndef RAYROG_INPUT_HANDLER_H
 #define RAYROG_INPUT_HANDLER_H
 
-#include "../include_raylib.h"
+#include "../kraylib/kraylib.h"
 
 #include "../events/action.h"
 #include "../events/event.h"
