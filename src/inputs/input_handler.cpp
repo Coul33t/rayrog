@@ -20,21 +20,25 @@ Action InputHandler::handle_input() {
     if (IsKeyPressed(KEY_W)) {
         act.type = ActionType::MOVE;
         act.params = {0, -1};
+        act.next_turn = true;
     }
 
     else if (IsKeyPressed(KEY_A)) {
         act.type = ActionType::MOVE;
         act.params = {-1, 0};
+        act.next_turn = true;
     }
 
     else if (IsKeyPressed(KEY_S)) {
         act.type = ActionType::MOVE;
         act.params = {0, 1};
+        act.next_turn = true;
     }
 
     else if (IsKeyPressed(KEY_D)) {
         act.type = ActionType::MOVE;
         act.params = {1, 0};
+        act.next_turn = true;
     }
 
     return act;

@@ -17,7 +17,11 @@ public:
     std::vector<Entity*> get_entities_with_tag(const Tag& tag);
     Entity* get_first_entity_with_tag(const Tag& tag);
 
+    // *In theory*, should never return nullptr (for now)
     Entity* get_player();
+
+    Entity* get_entity_at(Position pos);
+    bool has_entity_at(Position pos);
 
     std::vector<Entity> entities;
     Entity* player;

@@ -13,5 +13,6 @@
 struct Action {
     ActionType type;
     std::vector<std::any> params;
+    bool next_turn = false;
 };
 #endif //RAYROG_ACTION_H

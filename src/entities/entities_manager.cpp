@@ -44,3 +44,23 @@ Entity* EntitiesManager::get_player() {
 
     return nullptr;
 }
+
+Entity* EntitiesManager::get_entity_at(Position pos) {
+    for (auto& ent: entities) {
+        if (*std::any_cast<Position>(ent.get_comp<Position>()) == pos) {
+            return &ent;
+        }
+    }
+
+    return nullptr;
+}
+
+bool EntitiesManager::has_entity_at(Position pos) {
+    for (auto& ent: entities) {
+        if (*std::any_cast<Position>(ent.get_comp<Position>()) == pos) {
+            return true;
+        }
+    }
+
+    return false;
+}
