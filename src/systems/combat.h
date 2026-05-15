@@ -8,8 +8,14 @@
 #include "../entities/entity.h"
 
 namespace systems {
-    void take_damage(Entity* src, Entity* target) {
+    namespace combat {
+        inline void take_damage(const Event& ev) {
+            
+        }
         
+        inline void attack(const Event& ev) {
+            
+        }
     }
 }
 

@@ -9,12 +9,16 @@
 
 #include "../events/event.h"
 #include "../components/position.h"
+#include "../events/action.h"
 
 namespace systems {
-    inline void move(const Event& ev) {
-        auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
-        pos->x += std::any_cast<int>(ev.act.params[0]);
-        pos->y += std::any_cast<int>(ev.act.params[1]);
+    namespace movement {
+        inline void move(const Event& ev) {
+            auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
+            auto mov = static_cast<ActionMovement*>(ev.act);
+            pos->x += mov->dx;
+            pos->y += mov->dy;
+        }
     }
 }
 

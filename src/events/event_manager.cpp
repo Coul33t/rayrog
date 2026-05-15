@@ -12,24 +12,60 @@ void EventManager::add_event(const Event& event) {
     events_queue.emplace_back(event);
 }
 
-void EventManager::add_event(const Action& act, Entity* target, int priority) {
+void EventManager::add_event(Action* act, Entity* target, int priority) {
     events_queue.emplace_back(Event{act, target, priority});
+}
+
+void EventManager::clear_event_queue() {
+    for (auto ev: events_queue) {
+        delete ev.act;
+    }
+
+    events_queue.clear();
 }
 
 void EventManager::process_events(EntitiesManager& ent_manager) {
     for (auto ev: events_queue) {
-        if (ev.act.type == ActionType::MOVE) {
+        if (ev.act->type == ActionType::MOVE) {
             if (ev.target->has_tag(Tag::MOVEABLE)) {
-                auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
-                Position target_tile;
-                target_tile.x = pos->x + std::any_cast<int>(ev.act.params[0]);
-                target_tile.y = pos->y + std::any_cast<int>(ev.act.params[1]);
-                if (!ent_manager.has_entity_at(target_tile)) {
-                    systems::move(ev);
-                } 
+                process_move_or_attack(ent_manager, ev);
             }
         }
     }
 
     events_queue.clear();
+}
+
+void EventManager::process_move(EntitiesManager& ent_manager, Event& ev) {
+    auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
+    auto mov = static_cast<ActionMovement*>(ev.act);
+    Entity* ent = ent_manager.get_entity_at({pos->x + mov->dx, pos->y + mov->dy});
+    
+    if (!ent) {
+        systems::movement::move(ev);
+    } 
+}
+
+void EventManager::process_attack(EntitiesManager& ent_manager, Event& ev) {
+    auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
+    auto mov = static_cast<ActionMovement*>(ev.act);
+    Entity* ent = ent_manager.get_entity_at({pos->x + mov->dx, pos->y + mov->dy});
+    
+    if (ent) {
+        systems::combat::attack(ev);
+    } 
+}
+
+void EventManager::process_move_or_attack(EntitiesManager& ent_manager, Event& ev) {
+    auto pos = std::any_cast<Position>(ev.target->get_comp<Position>());
+    auto mov = static_cast<ActionMovement*>(ev.act);
+    Entity* ent = ent_manager.get_entity_at({pos->x + mov->dx, pos->y + mov->dy});
+    
+    if (!ent) {
+        systems::movement::move(ev);
+    } else {
+        if (ent->has_tag(Tag::HP)) {
+            systems::combat::take_damage(ev);
+        }
+    }
 }

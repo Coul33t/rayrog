@@ -12,7 +12,28 @@
 
 struct Action {
     ActionType type;
-    std::vector<std::any> params;
     bool next_turn = false;
+};
+
+struct ActionNone: Action {
+    ActionNone() {
+        type = ActionType::NONE;
+    }
+};
+
+struct ActionMovement: Action {
+    int dx, dy;
+
+    ActionMovement(int dx, int dy): dx(dx), dy(dy) {
+        type = ActionType::MOVE;
+    }
+};
+
+struct ActionAttack: Action {
+    int dmg;
+
+    ActionAttack(int dmg): dmg(dmg) {
+        type = ActionType::ATTACK;
+    }
 };
 #endif //RAYROG_ACTION_H

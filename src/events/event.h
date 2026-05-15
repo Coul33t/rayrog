@@ -9,9 +9,9 @@
 #include "../entities/entity.h"
 
 struct Event {
-    Action act;
+    Action* act;
     Entity* target;
-    int priority;
+    int priority = -1;
 };
 
 #endif

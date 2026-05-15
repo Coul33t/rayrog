@@ -29,7 +29,7 @@ void Engine::run() {
         kraylib::begin_drawing();
         kraylib::clear_background(BLACK);
         renderer.render_all(game_map, ent_manager);
-        Action act = input_h.handle_input();
+        Action* act = input_h.handle_input();
         ev_manager.add_event(act, ent_manager.get_player(), 0);
         ev_manager.process_events(ent_manager);
         //DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
@@ -37,10 +37,4 @@ void Engine::run() {
     }
 
     renderer.close();
-}
-
-void Engine::handle_action(Action act) {
-    if (act.type == ActionType::MOVE) {
-
-    }
 }

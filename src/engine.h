@@ -23,8 +23,6 @@ public:
     void init();
     void run();
 
-    void handle_action(Action act);
-
     Renderer renderer;
     InputHandler input_h;
     EventManager ev_manager;

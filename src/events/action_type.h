@@ -8,7 +8,8 @@
 enum class ActionType {
     NONE,
     WAIT,
-    MOVE
+    MOVE,
+    ATTACK
 };
 
 #endif //RAYROG_ACTION_TYPE_H

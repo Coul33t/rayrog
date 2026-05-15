@@ -16,7 +16,7 @@ public:
     InputHandler();
     ~InputHandler();
 
-    Action handle_input();
+    Action* handle_input();
 };
 
 
