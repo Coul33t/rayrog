@@ -36,3 +36,39 @@ void GameMap::test_map() {
         }
     }
 }
+
+void GameMap::generate_map() {
+    int smallest_room_size = 3;
+    bool cont = true;
+
+    while (cont) {
+        
+    }
+}
+
+void GameMap::dig_room(const Room& r) {
+    for (size_t i = r.x; i < r.x + r.w; i++) {
+        for (size_t j = r.y; j < r.y + r.h; j++) {
+            tiles[Tools::coord_2d_to_1d(i, j, w)].set_floor();
+        }
+    }
+}
+
+void GameMap::dig_corridor_between_rooms(const Room& r1, const Room& r2) {
+
+}
+
+Position GameMap::get_closest_center(Position center) {
+    Position closest = {9999999, 9999999};
+    int smallest_dst = 9999999;
+
+    for (auto& room: rooms) {
+        int dst = center.distance(room.get_center());
+        if (dst > 0 && dst < smallest_dst) {
+            smallest_dst = dst;
+            closest = room.get_center();
+        }
+    }
+
+    return closest;
+}

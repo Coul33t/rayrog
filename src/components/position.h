@@ -5,6 +5,8 @@
 #ifndef RAYROG_POSITION_H
 #define RAYROG_POSITION_H
 
+#include <cmath>
+
 #include "../include_raylib.h"
 
 #include "component.h"
@@ -31,6 +33,10 @@ struct Position: public Component {
 
     bool operator!=(const Position& rhs) const {
         return !((this->x == rhs.x) && (this->y == rhs.y));
+    }
+
+    int distance(const Position& pos) {
+        return (sqrt(pow(pos.x - x, 2) + pow(pos.y - y, 2)));
     }
 };
 #endif //RAYROG_POSITION_H
