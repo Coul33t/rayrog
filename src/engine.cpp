@@ -17,11 +17,11 @@ Engine::~Engine() {
 void Engine::init() {
     renderer.init();
     game_map.init(20, 30);
-    game_map.test_map();
-    ent_manager.add_entity(entities_factory::get_player(1, 1));
-    for (size_t i = 0; i < 5; i++) {
+    game_map.generate_map();
+    ent_manager.add_entity(entities_factory::get_player(game_map.get_center_of_random_room()));
+    /*for (size_t i = 0; i < 5; i++) {
         ent_manager.add_entity(entities_factory::get_basic_monster(2 + i, 2));
-    }
+    }*/
 }
 
 void Engine::run() {

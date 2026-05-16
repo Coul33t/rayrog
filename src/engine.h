@@ -14,6 +14,7 @@
 #include "entities/entities_manager.h"
 #include "events/event_manager.h"
 #include "entities/entities_factory.h"
+#include "misc/random.h"
 
 class Engine {
 public:
@@ -27,6 +28,7 @@ public:
     InputHandler input_h;
     EventManager ev_manager;
 
+    RandomGenerator r_gen;
     EntitiesManager ent_manager;
     GameMap game_map;
 };

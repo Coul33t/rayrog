@@ -5,7 +5,7 @@
 enum class FovShape {
     SQUARE,
     LOSANGE
-}
+};
 
 struct Fov: public Component {
     int distance;

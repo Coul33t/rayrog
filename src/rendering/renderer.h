@@ -12,7 +12,7 @@
 #include "tileset_info.h"
 #include "../components/position.h"
 #include "../components/graphics.h"
-#include "../tools.h"
+#include "../misc/tools.h"
 #include "../gamemap/gamemap.h"
 
 class Renderer {

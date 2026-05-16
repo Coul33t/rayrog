@@ -5,6 +5,8 @@
 
 #include "../kraylib/kraylib.h"
 
+#include "../components/position.h"
+
 struct Room {
     int x, y, w, h;
 
@@ -12,9 +14,13 @@ struct Room {
 
     }
 
-    Position get_center() {
-        return ({floor((x + w) / 2),
-                 floor((y + h) / 2)});
+    Position get_center() const {
+        return {static_cast<int>(floor((x + w) / 2)),
+                static_cast<int>(floor((y + h) / 2))};
+    }
+
+    Rectangle get_raylib_rect() const {
+        return {(float)x, (float)y, (float)w, (float)h};
     }
 };
 

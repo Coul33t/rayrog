@@ -18,6 +18,12 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(raylib)
 
+# Project code
+INCLUDE_DIRECTORIES(
+        ${CMAKE_SOURCE_DIR}/extlib/random
+        ${CMAKE_SOURCE_DIR}/extlib/json
+)
+
 #INCLUDE_DIRECTORIES("extlib/raylib-cpp/include/")
 
 # Our Project

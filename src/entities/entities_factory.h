@@ -28,6 +28,13 @@ namespace entities_factory {
         return player;
     }
 
+    inline Entity get_player(const Position pos) {
+        Entity player;
+        player.add_tag(Tag::PLAYER, Tag::MOVEABLE, Tag::ATTACK, Tag::HP, Tag::RENDER);
+        player.add_comp(pos, Hp(10), Combat(5), Fov(10, FovShape::LOSANGE), Graphics("player"));
+        return player;
+    }
+
     inline Entity get_basic_monster() {
         Entity monster;
         monster.add_tag(Tag::MONSTER, Tag::MOVEABLE, Tag::ATTACK, Tag::HP, Tag::RENDER);
@@ -38,7 +45,7 @@ namespace entities_factory {
     inline Entity get_basic_monster(const int x, const int y) {
         Entity monster;
         monster.add_tag(Tag::MONSTER, Tag::MOVEABLE, Tag::ATTACK, Tag::HP, Tag::RENDER);
-        monster.add_comp(Position{x, y}, Hp(10), Combat(1), Fov(8, FovShape::LOSANGE) Graphics("monster"));
+        monster.add_comp(Position{x, y}, Hp(10), Combat(1), Fov(8, FovShape::LOSANGE), Graphics("monster"));
         return monster;
     }
 }
