@@ -28,7 +28,6 @@ public:
     InputHandler input_h;
     EventManager ev_manager;
 
-    RandomGenerator r_gen;
     EntitiesManager ent_manager;
     GameMap game_map;
 };

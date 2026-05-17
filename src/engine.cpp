@@ -15,8 +15,9 @@ Engine::~Engine() {
 }
 
 void Engine::init() {
+    Random::seed(7);
     renderer.init();
-    game_map.init(20, 30);
+    game_map.init(50, 20);
     game_map.generate_map();
     ent_manager.add_entity(entities_factory::get_player(game_map.get_center_of_random_room()));
     /*for (size_t i = 0; i < 5; i++) {

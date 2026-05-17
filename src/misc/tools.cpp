@@ -4,7 +4,7 @@
 
 #include "tools.h"
 
-namespace Random {
+/*namespace Random {
     int get_int(int min, int max, int seed) {
         if (seed != -1) {
             EffoRandom::seed(seed);
@@ -20,7 +20,7 @@ namespace Random {
             
         return EffoRandom::get(min, max);
     }
-}
+}*/
 
 namespace Tools {
     Rectangle get_rect(Vector2 pos, Vector2 size) {

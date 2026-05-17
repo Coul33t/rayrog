@@ -16,10 +16,10 @@ bool Renderer::init() {
     kraylib::init_window(24*50, 24*35, "Yoooo");
     kraylib::set_target_fps(60);
 
-    TilesetInfo tileset_info(24*16, 24*16, 24, 24);
+    TilesetInfo tileset_info(24*16, 24*16, 24, 36);
     tileset_info.add_tile("wall", 3, 2);
 
-    tileset.load_tileset("../../data/Curses_square_24.png", tileset_info);
+    tileset.load_tileset("../../data/Curses_1920x900.png", tileset_info);
 
     tileset.add_tile("wall", 3, 2);
     tileset.add_tile("floor", 14, 2);

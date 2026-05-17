@@ -9,10 +9,10 @@
 
 #include "../../extlib/random/random.hpp"
 
-namespace Random {
+/*namespace Random {
     using EffoRandom = effolkronium::random_static;
     int get_int(int lower, int higher, int seed=7);
-}
+}*/
 
 namespace Tools {
     Rectangle get_rect(Vector2 pos, Vector2 size);
